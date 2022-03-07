@@ -18,6 +18,7 @@ Route::get('/', function () {
 
 // 授業用
 Route::get('hello', 'HelloController@index');
+Route::post('hello', 'HelloController@post');
 
 
 
