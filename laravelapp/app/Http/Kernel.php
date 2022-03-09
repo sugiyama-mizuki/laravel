@@ -19,6 +19,8 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
+        // 授業
+        // \App\Http\Middleware\HelloMiddleware::class, グローバル登録
     ];
 
     /**
@@ -41,6 +43,10 @@ class Kernel extends HttpKernel
             'throttle:60,1',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
+        // 授業
+        'hello' => [
+            \App\Http\Middleware\HelloMiddleware::class,
+        ]
     ];
 
     /**
@@ -61,6 +67,8 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        // 授業
+        // 'hello' => \App\Http\Middleware\HelloMiddleware::class,　ローカル登録
     ];
 
     /**
