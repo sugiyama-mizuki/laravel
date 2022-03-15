@@ -21,6 +21,20 @@ Route::get('/', function () {
 // 授業用
 Route::get('hello', 'HelloController@index');
 Route::post('hello', 'HelloController@post');
+Route::get('hello/add', 'HelloController@add');
+Route::post('hello/add', 'HelloController@create');
+Route::get('hello/edit', 'HelloController@edit');
+Route::post('hello/edit', 'HelloController@update');
+Route::get('hello/del', 'HelloController@del');
+Route::post('hello/del', 'HelloController@remove');
+
+// 効果測定
+// 1―1
+Route::get('kouka1_1', 'Kouka1_1Controller@index');
+
+// 1-2
+Route::get('kouka1_2', 'Kouka1_2Controller@index');
+Route::post('kouka1_2', 'Kouka1_2Controller@post');
 
 
 
