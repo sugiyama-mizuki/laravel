@@ -29,6 +29,10 @@ Route::get('hello/del', 'HelloController@del');
 Route::post('hello/del', 'HelloController@remove');
 Route::get('hello/show', 'HelloController@show');
 
+Route::get('person', 'PersonController@index');
+Route::get('person/find', 'PersonController@find');
+Route::post('person/find', 'PersonController@search');
+
 // 効果測定
 // 1―1
 Route::get('kouka1_1', 'Kouka1_1Controller@index');
@@ -62,3 +66,7 @@ Route::post('jissyu7', 'jissyu4_2Controller@post');
 // 5-1
 Route::get('jissyu10','jissyu5_1Controller@index');
 Route::get('jissyu10/show','jissyu5_1Controller@show');
+
+// 6-1
+Route::get('jissyu13', 'jissyu6_1Controller@index');
+Route::post('jissyu13/find', 'jissyu6_1Controller@find');
