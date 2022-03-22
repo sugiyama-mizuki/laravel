@@ -33,6 +33,11 @@ Route::get('person', 'PersonController@index');
 Route::get('person/find', 'PersonController@find');
 Route::post('person/find', 'PersonController@search');
 
+Route::get('board', 'BoardController@index');
+
+Route::get('board/add', 'BoardController@add');
+Route::post('board/add', 'BoardController@create');
+
 // 効果測定
 // 1―1
 Route::get('kouka1_1', 'Kouka1_1Controller@index');
