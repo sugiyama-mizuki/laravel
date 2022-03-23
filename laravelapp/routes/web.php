@@ -38,6 +38,12 @@ Route::get('board', 'BoardController@index');
 Route::get('board/add', 'BoardController@add');
 Route::post('board/add', 'BoardController@create');
 
+Route::resource('rest', 'RestappController');
+Route::get('hello/rest', 'HelloCountroller@rest');
+
+Route::get('hello/session', 'HelloController@ses_get');
+Route::post('hello/session', 'HelloController@ses_put');
+
 // 効果測定
 // 1―1
 Route::get('kouka1_1', 'Kouka1_1Controller@index');
@@ -75,3 +81,8 @@ Route::get('jissyu10/show','jissyu5_1Controller@show');
 // 6-1
 Route::get('jissyu13', 'jissyu6_1Controller@index');
 Route::post('jissyu13/find', 'jissyu6_1Controller@find');
+
+// 7-1
+Route::resource('jissyu7_1', 'jissyu7_1Controller');
+Route::post('jissyu7_1/post', 'jissyu7_1Controlller@find');
+Route::get('jissyu7_1/{id}/del', 'jissyu7_1Controller@del');
