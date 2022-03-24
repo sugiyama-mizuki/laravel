@@ -19,7 +19,8 @@ Route::get('/', function () {
 
 
 // 授業用
-Route::get('hello', 'HelloController@index');
+Route::get('hello', 'HelloController@index')
+    ->middleware('auth');
 Route::post('hello', 'HelloController@post');
 Route::get('hello/add', 'HelloController@add');
 Route::post('hello/add', 'HelloController@create');
@@ -28,6 +29,8 @@ Route::post('hello/edit', 'HelloController@update');
 Route::get('hello/del', 'HelloController@del');
 Route::post('hello/del', 'HelloController@remove');
 Route::get('hello/show', 'HelloController@show');
+Route::get('hello/auth', 'HelloController@getAuth');
+Route::post('hello/auth', 'HelloController@postAuth');
 
 Route::get('person', 'PersonController@index');
 Route::get('person/find', 'PersonController@find');
@@ -86,3 +89,6 @@ Route::post('jissyu13/find', 'jissyu6_1Controller@find');
 Route::resource('jissyu7_1', 'jissyu7_1Controller');
 Route::post('jissyu7_1/post', 'jissyu7_1Controlller@find');
 Route::get('jissyu7_1/{id}/del', 'jissyu7_1Controller@del');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
