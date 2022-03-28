@@ -99,6 +99,11 @@ class HelloController extends Controller
         return redirect('hello/session');
     }
 
+    public function getAuth(Request $request){
+        $param = ['message' => 'ログインしてください。'];
+        return view ('hello.auth', $param);
+    }
+
     public function postAuth(Request $request){
         $email = $request->email;
         $password = $request->password;

@@ -17,6 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('sugizon', 'ECController@index');
+
 
 // 授業用
 Route::get('hello', 'HelloController@index')
@@ -54,6 +56,29 @@ Route::get('kouka1_1', 'Kouka1_1Controller@index');
 // 1-2
 Route::get('kouka1_2', 'Kouka1_2Controller@index');
 Route::post('kouka1_2', 'Kouka1_2Controller@post');
+
+// 2-1
+Route::get('kouka2_1', 'Kouka2_1Controller@index');
+Route::post('kouka2_1/find', 'Kouka2_1Controller@find');
+
+// 2-2
+Route::get('kouka2_2', 'Kouka2_2Controller@index');
+
+Route::post('kouka2_2/find', 'Kouka2_2Controller@find');
+
+Route::get('kouka2_2/show', 'Kouka2_2Controller@show');
+
+Route::get('kouka2_2/add', 'Kouka2_2Controller@add');
+
+Route::post('kouka2_2/create', 'Kouka2_2Controller@create');
+
+Route::get('kouka2_2/edit', 'Kouka2_2Controller@edit');
+
+Route::post('kouka2_2/update', 'Kouka2_2Controller@update');
+
+Route::get('kouka2_2/del', 'Kouka2_2Controller@del');
+
+Route::post('kouka2_2/remove', 'Kouka2_2Controller@remove');
 
 
 
