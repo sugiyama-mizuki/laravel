@@ -177,6 +177,9 @@ return [
 
         // リスト3‐36追加
         App\Providers\HelloServiceProvider::Class
+
+        // 効果測定3回（ショッピングカート）
+        
     ],
 
     /*
@@ -228,6 +231,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+        // 効果測定3回（ショッピングカート）
+        'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class
     ],
 
 ];

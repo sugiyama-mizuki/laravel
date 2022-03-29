@@ -17,7 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('sugizon', 'ECController@index');
+// 効果測定3回
+Route::resource('sugizon', 'ECController');
 
 
 // 授業用
