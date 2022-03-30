@@ -9,11 +9,11 @@ class Cart extends Model
     protected $guarded = array('id');
 protected $table = 'cart';
 
-    public static $rules = array(
-        'quantity' => 'required|min:1|integer',
-    );
-
     public function getData(){
-        // 
+        return $this->quantity;
+    }
+
+    public function goods() {
+        return $this->belongsTo('App\Goods');
     }
 }

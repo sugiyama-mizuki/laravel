@@ -7,9 +7,9 @@
 <h1>@yield('title')</h1>
     @section('menubar')
     <h2 class="menutitle"></h2>
-    <ul>
+    <!-- <ul>
         <li>@show</li>
-    </ul>
+    </ul> -->
     <div class="content">
         @yield('content')
     </div>

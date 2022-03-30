@@ -8,15 +8,14 @@ use Illuminate\Http\Response;
 use Validator;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use App\Goods;
 use App\Cart;
-// use Gloudemans\Shoppingcart\ShoppingcartServiceProvider;
-
 class ECController extends Controller
 {
     public function index(Request $request){
-        // $user = Auth::user();
-        $items = DB::table('goods')->paginate(5);
-        $param = ['items' => $items];   //, 'user' => $user
+        $user = Auth::user();
+        $items = Goods::paginate(5);
+        $param = ['items' => $items, 'user' => $user];   //
         return view('EC.index', $param);
     }
 
@@ -27,29 +26,26 @@ class ECController extends Controller
     }
 
     public function store(Request $request){
+        $validate_rule = [
+            'goods_id' => 'exists:goods,id',
+            'quantity' => 'required|min:1|integer',
+        ];
+        
         $cart = new Cart;
+        $cart->id = 1;
         $cart->goods_id = $request->goods_id;
         $cart->quantity = $request->quantity;
         $cart->save();
         return redirect('/sugizon');
     }
 
+    public function look(){
+        $items = Goods::paginate(5);
+        return view('EC.cart', ['items' => $items]);
+    }
 
-
-    // public function cart($id){
-    //     $items = DB::table('goods')->where('id', $id)->first();
-
-    //     Cart::add([
-    //         [
-    //             'id' => $items->id,
-    //             'name' => $items->name,
-    //             'qty' => 1,
-    //             'price' => $items->price,
-    //             ]
-    //         ]);
-
-    //         $cart = Cart::content();
-    //         return view('EC.index')->with(compact('cart'));
-    // }
-
+    public function destroy($id){
+        Cart::find($id)->delete();
+        return redirect('/sugizon');
+    }
 }
